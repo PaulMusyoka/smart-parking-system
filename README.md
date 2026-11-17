@@ -1,4 +1,6 @@
-SmartPark: IoT-Based Vehicle Presence Detection System Using ESP32 and Ultrasonic Ranging
+                              **SmartPark: IoT-Based Vehicle Presence Detection System Using ESP32 and Ultrasonic Ranging**
+
+
 Author: Eng. Paul Musyoka
 
 ⚠️ Public demo note: This ThingSpeak channel (ID 3525895) is a public demo. The API key is included in sketch.ino for reproducibility, which means anyone who runs the code can write to this channel. The data is not tamper-proof and should be treated as a demonstration only — not as a reliable monitoring source.
