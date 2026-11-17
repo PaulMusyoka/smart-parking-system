@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "author": "Smart Parking System",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -67.2, "left": -4.76, "attrs": {} },
+    {
+      "type": "wokwi-breadboard",
+      "id": "bb",
+      "top": 179.4,
+      "left": -179.6,
+      "attrs": { "color": "#575756" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "sensor", "top": -75.3, "left": -272.9, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -137.6,
+      "left": 216.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "green",
+      "top": 188.4,
+      "left": 282.2,
+      "attrs": { "color": "green" }
+    },
+    { "type": "wokwi-led", "id": "red", "top": 188.4, "left": 416.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "rGreen",
+      "top": 234.35,
+      "left": 374.4,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rRed",
+      "top": 234.35,
+      "left": 240,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 146.4,
+      "left": 49.8,
+      "attrs": { "volume": "0.3" }
+    }
+  ],
+  "connections": [
+    [ "esp:D5", "sensor:TRIG", "orange", [ "v0" ] ],
+    [ "esp:D18", "sensor:ECHO", "yellow", [ "v0" ] ],
+    [ "esp:D21", "lcd:SDA", "blue", [ "v0" ] ],
+    [ "esp:D22", "lcd:SCL", "green", [ "v0" ] ],
+    [ "esp:D4", "red:A", "red", [ "v0" ] ],
+    [ "esp:D15", "buzzer:1", "purple", [ "v0" ] ],
+    [ "esp:5V", "bb:tp.1", "red", [ "h0" ] ],
+    [ "esp:GND.1", "bb:tn.1", "black", [ "h-230.25", "v115.2" ] ],
+    [ "sensor:VCC", "bb:tp.2", "red", [ "v134.4", "h86.4" ] ],
+    [ "sensor:ECHO", "esp:15", "yellow", [ "v-9.6", "h152.8", "v-96", "h153.6", "v182.4" ] ],
+    [ "sensor:TRIG", "esp:5", "gold", [ "v28.8", "h182", "v-124.8", "h124.8", "v115.2" ] ],
+    [ "sensor:GND", "bb:tn.2", "black", [ "v48", "h-30", "v0", "h-57.6", "v144", "h134.4" ] ],
+    [ "lcd:GND", "bb:tn.31", "black", [ "h-48", "v0", "h-28.8", "v316.8", "h67.2" ] ],
+    [ "lcd:VCC", "bb:tp.26", "red", [ "h0" ] ],
+    [ "lcd:SDA", "esp:21", "gold", [ "h-57.6", "v96.2" ] ],
+    [ "esp:22", "lcd:SCL", "yellow", [ "h76.8", "v-57.6" ] ],
+    [ "esp:2", "bb:49t.e", "green", [ "h364.8", "v182.4", "h-9.6" ] ],
+    [ "bb:tn.34", "bb:42t.a", "black", [ "v0" ] ],
+    [ "bb:tn.45", "bb:56t.a", "black", [ "v-0.1", "h8.8" ] ],
+    [ "bb:63t.b", "esp:4", "red", [ "v0", "h38.4", "v-172.8" ] ],
+    [ "esp:23", "bb:26t.e", "green", [ "h76.8", "v86.4", "h326.4", "v230.4", "h-412.8" ] ],
+    [ "buzzer:1", "bb:25t.a", "", [ "$bb" ] ],
+    [ "buzzer:2", "bb:26t.a", "", [ "$bb" ] ],
+    [ "red:A", "bb:63t.a", "", [ "$bb" ] ],
+    [ "red:C", "bb:62t.a", "", [ "$bb" ] ],
+    [ "green:A", "bb:49t.a", "", [ "$bb" ] ],
+    [ "green:C", "bb:48t.a", "", [ "$bb" ] ],
+    [ "rRed:1", "bb:42t.b", "", [ "$bb" ] ],
+    [ "rRed:2", "bb:48t.b", "", [ "$bb" ] ],
+    [ "rGreen:1", "bb:56t.b", "", [ "$bb" ] ],
+    [ "rGreen:2", "bb:62t.b", "", [ "$bb" ] ],
+    [ "bb:tn.3", "buzzer:1", "black", [ "v9.5", "h191.2" ] ]
+  ],
+  "serialMonitor": { "display": "always", "newline": "lf" },
+  "dependencies": {}
+}
